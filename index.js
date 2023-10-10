@@ -3,8 +3,10 @@ const axios = require('axios');
 const app = express();
 const _ = require('lodash');
 const port = 3000;
+const cors=require('cors')
 const blogMiddleware = require('./middleware/auth')
 
+app.use(cors())
 app.get('/api/blog-stats', blogMiddleware,(req,res)=>{
   if (req.blogData && req.blogAnalytics) {
       res.json(req.blogAnalytics)
