@@ -7,6 +7,9 @@ const cors=require('cors')
 const blogMiddleware = require('./middleware/auth')
 
 app.use(cors())
+app.get("/",(req,res)=>{
+  res.json("Blog")
+})
 app.get('/api/blog-stats', blogMiddleware,(req,res)=>{
   if (req.blogData && req.blogAnalytics) {
       res.json(req.blogAnalytics)
